@@ -5,7 +5,7 @@ docker network create cam_network
 
 # Zgradi in zaženi strežnik
 docker build -t cam_server ./server
-docker run -d --name server --network cam_network cam_server &
+docker run -d --name server --network cam_network --device=/dev/video0:/dev/video0 cam_server &
 
 # Zgradi in zaženi odjemalca
 docker build -t cam_client ./client
